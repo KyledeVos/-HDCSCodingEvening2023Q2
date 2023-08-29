@@ -50,13 +50,10 @@ def rgbToCmyk(number1, number2, number3):
     if number3 == "invalid":
         return ["invalid"]
     
-
     # all numbers are valid, convert to equivalent range
-    red = round(number1/255, 1)
-    green = round(number2/255, 1)
-    blue = round(number2/255, 1)
-
-    print(f"num1 - {red}, num2 - {green}, num3 - {blue}")
+    red = number1/255
+    green = number2/255
+    blue = number3/255
     
     # Convert rgb to Cmyk
     # Formula from: wizlogo, Referenced on 29 August 2023
@@ -65,17 +62,16 @@ def rgbToCmyk(number1, number2, number3):
     # calculate black key colour:
     k = 1 - max(red, green, blue)
     # calculate cyan
-    c = (1- red - k) / (1 -k)
+    c = (1- red - k) / (1 - k)
     # calculate magenta
     m = (1 - green - k) / (1 - k)
     # calculate yellow
     y = (1 - blue - k) / (1 - k)
 
-    return [int(k), int(c), int(m), int(y)]
-
+    return [int(round(c*100, 0)), int(round(m*100, 0)), int(round(y*100, 0)), int(round(k*100, 0))]
 
 # Testing
-print(rgbToCmyk(255, 255, 255))
-print(rgbToCmyk(100, 50, 75))
+# print(rgbToCmyk(255, 255, 255))
+# print(rgbToCmyk(100, 50, 75))
     
     
