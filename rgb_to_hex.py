@@ -36,8 +36,6 @@ def verify_number(number):
         return '-1'
 
 # Helper Function
-
-
 def return_hex(number):
     """Convert a Received Number (verified to be between 0 and 15) to the hexadecimal equivalent
 
