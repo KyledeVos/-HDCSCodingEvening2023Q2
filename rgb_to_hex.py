@@ -136,3 +136,10 @@ def rgbToHex(number1, number2, number3):
         # return completed hexadecimal number
         combined_list = convert1 + convert2 + convert3
         return "".join(combined_list)
+
+# Tests Completed
+# print(rgbToHex(0,0,0))
+# print(rgbToHex(255,255,225))
+# print(rgbToHex(300,-5,5))
+# print(rgbToHex(0,"Ab",0))
+# print(rgbToHex(0,0,0))
