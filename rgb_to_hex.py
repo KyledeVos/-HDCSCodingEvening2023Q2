@@ -1,11 +1,12 @@
 # Coding Night - Submission Kyle de Vos
+# Challenge - Convert rgb to Hexadecimal
 # -------------------------------------------------------------
 
 # Helper Function
 def verify_number(number):
     """Check if a number is a valid Integer between 0-255. Convert negative numbers to 0
     and numbers > 255 to 255. Non-Numeric numbers are not handled with return -1
-    
+
     Parameters:
     -----------
     number: int 
@@ -32,12 +33,14 @@ def verify_number(number):
 
     # return '-1' to indicate non-numeric input
     except ValueError:
-            return '-1'
+        return '-1'
 
 # Helper Function
+
+
 def return_hex(number):
     """Convert a Received Number (verified to be between 0 and 15) to the hexadecimal equivalent
-    
+
     Parameter:
     ----------
     number: int
@@ -60,11 +63,11 @@ def return_hex(number):
         # numbers less than 10, return number as string
     else:
         return str(number)
-    
+
 # Helper Function
 def convert_decimal_to_hex(number):
     """Convert a validated decimal number (0-15) to its hexadecimal equivalent.
-    
+
     Parameter:
     ----------
     number: int
@@ -76,19 +79,19 @@ def convert_decimal_to_hex(number):
     """
     # check if number is valid
     verified_number = verify_number(number)
-    
+
     # check if number had a non-numeric input
     if verified_number == '-1':
         # non-numeric was recieved, terminate check
         return "invalid"
-    
+
     # list to hold hexadecimal place value
 
-    # if 
+    # if
     hex_list = []
-    
+
     # begin conversion of number to hexadecimal
-    while verified_number>=16:
+    while verified_number >= 16:
         # retrieve remainder for hexadecimal conversion
         remainder = verified_number % 16
         # convert to hexadecimal and append to list
@@ -110,7 +113,7 @@ def convert_decimal_to_hex(number):
 # Main Function
 def rgbToHex(number1, number2, number3):
     """Controlling Function to convert three decimal numbers to hexadecimal functions
-    
+
     Parameters:
     -----------
     number1:
@@ -125,10 +128,11 @@ def rgbToHex(number1, number2, number3):
     convert2 = convert_decimal_to_hex(number2)
     convert3 = convert_decimal_to_hex(number3)
 
+    # perform check if any input was invalid
     if 'invalid' in convert1 or 'invalid' in convert2 or 'invalid' in convert3:
         return "invalid"
-    
+
     else:
+        # return completed hexadecimal number
         combined_list = convert1 + convert2 + convert3
         return "".join(combined_list)
-
